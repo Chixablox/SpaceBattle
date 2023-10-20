@@ -1,3 +1,5 @@
+namespace SpaceBattle.Lib;
+
 public class Vector
 {
     int x { get; set; }
@@ -11,10 +13,6 @@ public class Vector
 
     public static Vector operator +(Vector v1, Vector v2)
     {
-        return new Vector
-        {
-            x = v1.x + v2.x;
-            y = v1.y + v2.y;
-        };
+        return new Vector(v1.x + v2.x, v1.y + v2.y);
     }
 }
