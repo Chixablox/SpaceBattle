@@ -1,4 +1,4 @@
-namespace SpaceBattle.Lib;
+﻿namespace SpaceBattle.Lib;
 
 public class MoveCommand : ICommand
 {
@@ -8,10 +8,10 @@ public class MoveCommand : ICommand
     {
         this.movable = movable;
     }
-    
+
     public void Execute()
     {
-        movable.Position = movable.Position+movable.Velocity;
+        movable.Position = movable.Position + movable.Velocity;
 
     }
 }

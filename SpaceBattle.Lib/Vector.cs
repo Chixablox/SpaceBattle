@@ -1,9 +1,9 @@
-namespace SpaceBattle.Lib;
+﻿namespace SpaceBattle.Lib;
 
 public class Vector
 {
-    int x { get; set; }
-    int y { get; set; }
+    public int x { get; set; }
+    public int y { get; set; }
 
     public Vector(int x, int y)
     {
