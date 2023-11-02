@@ -11,7 +11,7 @@ public class MoveCommand : ICommand
     
     public void Execute()
     {
-        movable.Position = movable.Position+movable.Velocity
+        movable.Position = movable.Position+movable.Velocity;
 
     }
 }
