@@ -4,6 +4,8 @@ name: MoveTests
 on:
   push:
     branches: ["Lab1_Ex1_Mrdak"]
+  pull_request:
+    branches: ["main"]
 
 jobs:
   build:
