@@ -11,7 +11,7 @@ public class RotateCommand : ICommand
     
     public void Execute()
     {
-        rotatable.Angle = rotatable.Angle+rotatable.Angle_Velocity;
+        rotatable.Angle = rotatable.Angle+rotatable.AngleVelocity;
 
     }
 }

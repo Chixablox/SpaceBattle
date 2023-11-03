@@ -1,14 +1,14 @@
 {
   "SpaceBattle.Lib.dll": {
-    "/home/ubuntu/projects/SpaceBattle/SpaceBattle.Lib/Angle.cs": {
+    "/workspaces/SpaceBattle/SpaceBattle.Lib/Angle.cs": {
       "SpaceBattle.Lib.Angle": {
-        "System.Int32 SpaceBattle.Lib.Angle::get_d()": {
+        "System.Int32 SpaceBattle.Lib.Angle::get_dir()": {
           "Lines": {
             "5": 10
           },
           "Branches": []
         },
-        "System.Int32 SpaceBattle.Lib.Angle::get_n()": {
+        "System.Int32 SpaceBattle.Lib.Angle::get_num()": {
           "Lines": {
             "6": 10
           },
@@ -34,7 +34,7 @@
         }
       }
     },
-    "/home/ubuntu/projects/SpaceBattle/SpaceBattle.Lib/Rotate.cs": {
+    "/workspaces/SpaceBattle/SpaceBattle.Lib/Rotate.cs": {
       "SpaceBattle.Lib.RotateCommand": {
         "System.Void SpaceBattle.Lib.RotateCommand::Execute()": {
           "Lines": {
