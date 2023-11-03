@@ -13,6 +13,6 @@ public class Angle
 
     public static Angle operator +(Angle a1, Angle a2)
     {
-        return new Angle((a1.dir + a2.dir)%a1.num, a2.num);
+        return new Angle((a1.dir + a2.dir)%a1.num, a1.num);
     }
 }

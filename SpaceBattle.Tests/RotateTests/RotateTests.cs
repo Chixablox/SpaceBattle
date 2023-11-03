@@ -12,13 +12,13 @@ public class RotateTest
     [Given(@"космический корабль имеет угол наклона (.*) град к оси OX")]
     public void ДопустимКосмическийКорабльИмеетУголНаклона(int x)
     {
-        _rotatable.SetupGet(r => r.Angle).Returns(new Angle(x/45, 8));
+        _rotatable.SetupGet(r => r.Angle).Returns(new Angle(x/45));
     }
 
     [Given(@"имеет мгновенную угловую скорость (.*) град")]
     public void ДопустимИмеетМгновеннуюУгловуюСкорость(int x)
     {
-        _rotatable.SetupGet(r => r.AngleVelocity).Returns(new Angle(x/45, 8));
+        _rotatable.SetupGet(r => r.AngleVelocity).Returns(new Angle(x/45));
     }
 
     [Given(@"мгновенную угловую скорость невозможно определить")]
