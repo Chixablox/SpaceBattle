@@ -1,0 +1,59 @@
+{
+  "SpaceBattle.Lib.dll": {
+    "/home/ubuntu/projects/SpaceBattle/SpaceBattle.Lib/Angle.cs": {
+      "SpaceBattle.Lib.Angle": {
+        "System.Int32 SpaceBattle.Lib.Angle::get_d()": {
+          "Lines": {
+            "5": 10
+          },
+          "Branches": []
+        },
+        "System.Int32 SpaceBattle.Lib.Angle::get_n()": {
+          "Lines": {
+            "6": 10
+          },
+          "Branches": []
+        },
+        "SpaceBattle.Lib.Angle SpaceBattle.Lib.Angle::op_Addition(SpaceBattle.Lib.Angle,SpaceBattle.Lib.Angle)": {
+          "Lines": {
+            "15": 1,
+            "16": 1,
+            "17": 1
+          },
+          "Branches": []
+        },
+        "System.Void SpaceBattle.Lib.Angle::.ctor(System.Int32,System.Int32)": {
+          "Lines": {
+            "8": 7,
+            "9": 7,
+            "10": 7,
+            "11": 7,
+            "12": 7
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/ubuntu/projects/SpaceBattle/SpaceBattle.Lib/Rotate.cs": {
+      "SpaceBattle.Lib.RotateCommand": {
+        "System.Void SpaceBattle.Lib.RotateCommand::Execute()": {
+          "Lines": {
+            "13": 4,
+            "14": 4,
+            "16": 1
+          },
+          "Branches": []
+        },
+        "System.Void SpaceBattle.Lib.RotateCommand::.ctor(SpaceBattle.Lib.IRotatable)": {
+          "Lines": {
+            "7": 4,
+            "8": 4,
+            "9": 4,
+            "10": 4
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}

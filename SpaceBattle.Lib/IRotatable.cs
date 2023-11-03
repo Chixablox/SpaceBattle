@@ -1,7 +1,7 @@
 namespace SpaceBattle.Lib;
 
-public interface IMovable
+public interface IRotatable
 {
     public Angle Angle { get; set; }
-    public Angle Angele_Velocity { get; }
+    public Angle Angle_Velocity { get; }
 }

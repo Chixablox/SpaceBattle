@@ -2,8 +2,8 @@ namespace SpaceBattle.Lib;
 
 public class Angle
 {
-    int d { get; set; }
-    int n { get; set; }
+    public int d { get; set; }
+    public int n { get; set; }
 
     public Angle(int d, int n)
     {
