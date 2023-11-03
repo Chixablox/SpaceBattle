@@ -23,5 +23,5 @@ jobs:
       - name: Build
         run: dotnet build
 
-      - name: Move-Unit-Test
+      - name: Rotate-Unit-Test
         run: dotnet test /p:CollectCoverage=true
