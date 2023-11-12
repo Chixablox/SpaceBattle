@@ -99,16 +99,16 @@ namespace SpaceBattle.Tests.RotateTests
             {
                 this.ScenarioStart();
 #line 3
-        testRunner.Given("космический корабль имеет угол наклона 45 град к оси OX", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+        testRunner.Given("космический корабль находится в секторе 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
 #line 4
-        testRunner.And("имеет мгновенную угловую скорость 45 град", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
+        testRunner.And("имеет мгновенную угловую скорость 1 сектор", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
 #line hidden
 #line 5
         testRunner.When("происходит вращение вокруг собственной оси", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 6
-        testRunner.Then("угол наклона космического корабля к оси OX составляет 90 град", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
+        testRunner.Then("космический корабль находится в 2 секторе", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -125,7 +125,7 @@ namespace SpaceBattle.Tests.RotateTests
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Если невозможно определить угол наклона к оси OX космического корабля, то вращени" +
                     "е вокруг собственной оси  невозможно", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 8
+#line 7
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -135,16 +135,16 @@ namespace SpaceBattle.Tests.RotateTests
             else
             {
                 this.ScenarioStart();
+#line 8
+        testRunner.Given("космический корабль, сектор которого невозможно определить", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+#line hidden
 #line 9
-        testRunner.Given("космический корабль, угол наклона которого невозможно определить", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+        testRunner.And("имеет мгновенную угловую скорость 1 сектор", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
 #line hidden
 #line 10
-        testRunner.And("имеет мгновенную угловую скорость 45 град", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
-#line hidden
-#line 11
         testRunner.When("происходит вращение вокруг собственной оси", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
-#line 12
+#line 11
         testRunner.Then("возникает ошибка Exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
@@ -162,7 +162,7 @@ namespace SpaceBattle.Tests.RotateTests
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Если невозможно определить мгновенную угловую скорость космического корабля, то в" +
                     "ращение вокруг собственной оси  невозможно", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 14
+#line 13
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -172,16 +172,16 @@ namespace SpaceBattle.Tests.RotateTests
             else
             {
                 this.ScenarioStart();
-#line 15
-        testRunner.Given("космический корабль имеет угол наклона 45 град к оси OX", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+#line 14
+        testRunner.Given("космический корабль находится в секторе 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
-#line 16
+#line 15
         testRunner.And("мгновенную угловую скорость невозможно определить", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
 #line hidden
-#line 17
+#line 16
         testRunner.When("происходит вращение вокруг собственной оси", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
-#line 18
+#line 17
         testRunner.Then("возникает ошибка Exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
@@ -199,7 +199,7 @@ namespace SpaceBattle.Tests.RotateTests
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Если невозможно установить новый угол наклона космического корабля космического к" +
                     "орабля, то вращение вокруг собственной оси  невозможно", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 21
+#line 19
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -209,19 +209,19 @@ namespace SpaceBattle.Tests.RotateTests
             else
             {
                 this.ScenarioStart();
+#line 20
+        testRunner.Given("космический корабль находится в секторе 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+#line hidden
+#line 21
+        testRunner.And("имеет мгновенную угловую скорость 1 сектор", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
+#line hidden
 #line 22
-        testRunner.Given("космический корабль имеет угол наклона 45 град к оси OX", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+        testRunner.And("невозможно изменить сектор нахождения космического корабля", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
 #line hidden
 #line 23
-        testRunner.And("имеет мгновенную угловую скорость 45 град", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
-#line hidden
-#line 24
-        testRunner.And("невозможно изменить угол наклона к оси OX космического корабля", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
-#line hidden
-#line 25
         testRunner.When("происходит вращение вокруг собственной оси", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
-#line 26
+#line 24
         testRunner.Then("возникает ошибка Exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }

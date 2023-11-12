@@ -9,16 +9,16 @@ public class RotateTest
     private readonly Mock<IRotatable> _rotatable = new Mock<IRotatable>();
     private RotateCommand _rotate;
 
-    [Given(@"космический корабль имеет угол наклона (.*) град к оси OX")]
-    public void ДопустимКосмическийКорабльИмеетУголНаклона(int x)
+    [Given(@"космический корабль находится в секторе (.*)")]
+    public void ДопустимКосмическийКорабльНаходитсяВСекторе(int x)
     {
-        _rotatable.SetupGet(r => r.Angle).Returns(new Angle(x/45));
+        _rotatable.SetupGet(r => r.Angle).Returns(new Angle(x));
     }
 
-    [Given(@"имеет мгновенную угловую скорость (.*) град")]
+    [Given(@"имеет мгновенную угловую скорость (.*) сектор")]
     public void ДопустимИмеетМгновеннуюУгловуюСкорость(int x)
     {
-        _rotatable.SetupGet(r => r.AngleVelocity).Returns(new Angle(x/45));
+        _rotatable.SetupGet(r => r.AngleVelocity).Returns(new Angle(x));
     }
 
     [Given(@"мгновенную угловую скорость невозможно определить")]
@@ -27,14 +27,14 @@ public class RotateTest
         _rotatable.SetupGet(r => r.AngleVelocity).Throws<Exception>();
     }
 
-    [Given(@"космический корабль, угол наклона которого невозможно определить")]
-    public void ДопустимКосмическийКорабльУголНаклонаКоторогоНевозможноОпределить()
+    [Given(@"космический корабль, сектор которого невозможно определить")]
+    public void ДопустимКосмическийКорабльСекторКоторогоНевозможноОпределить()
     {
         _rotatable.SetupGet(r => r.Angle).Throws<Exception>();
     }
 
-    [Given(@"невозможно изменить угол наклона к оси OX космического корабля")]
-    public void ДопустимНевозможноИзменитьУголНаклонаКОсиOXКосмическогоКорабля()
+    [Given(@"невозможно изменить сектор нахождения космического корабля")]
+    public void ДопустимНевозможноИзменитьСекторНахожденияКосмическогоКорабля()
     {
         _rotatable.SetupGet(r => r.Angle).Throws<Exception>();
     }
@@ -45,11 +45,11 @@ public class RotateTest
         _rotate = new RotateCommand(_rotatable.Object);
     }
 
-    [Then(@"угол наклона космического корабля к оси OX составляет (.*) град")]
-    public void ТоУголНаклонаКосмическогоКорабляКОсиOXСоставляет(int x)
+    [Then(@"космический корабль находится в (.*) секторе")]
+    public void ТоКосмическийКорабльНаходитсяВСекторе(int x)
     {
         _rotate.Execute();
-        _rotatable.VerifySet(r => r.Angle = It.Is<Angle>(p => p.dir == x/45 && p.num == 8));
+        _rotatable.VerifySet(r => r.Angle = It.Is<Angle>(p => p.dir == x));
     }
 
     [Then(@"возникает ошибка Exception")]
