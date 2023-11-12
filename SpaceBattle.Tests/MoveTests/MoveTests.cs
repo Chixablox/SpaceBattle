@@ -6,19 +6,13 @@ namespace SpaceBattleTests;
 [Binding]
 public class MoveTest
 {
-    private readonly Mock<IMovable> _movable;
-    private Action commandExecutionLambda;
-    public MoveTest()
-    {
-        _movable = new Mock<IMovable>();
-        commandExecutionLambda = () => { };
-    }
+    private readonly Mock<IMovable> _movable = new Mock<IMovable>();
+    private MoveCommand _move;
 
     [When("происходит прямолинейное равномерное движение без деформации")]
     public void КогдаПроисходитПрямолинейноеРавномерноеДвижениеБезДеформации()
     {
-        var mc = new MoveCommand(_movable.Object);
-        commandExecutionLambda = () => mc.Execute();
+        _move = new MoveCommand(_movable.Object);
     }
 
     [Given(@"космический корабль находится в точке пространства с координатами \((.*), (.*)\)")]
@@ -54,14 +48,14 @@ public class MoveTest
     [Then(@"космический корабль перемещается в точку пространства с координатами \((.*), (.*)\)")]
     public void ТоКосмическийКорабльПеремещаетсяВТочкуПространстваСКоординатами(int a, int b)
     {
-        commandExecutionLambda();
+        _move.Execute();
         _movable.VerifySet(m => m.Position = It.Is<Vector>(p => p.x == a && p.y == b));
     }
 
     [Then(@"возникает ошибка Exception")]
     public void ТоВозникаетОшибкаException()
     {
-        Assert.Throws<Exception>(() => commandExecutionLambda());
+        Assert.Throws<Exception>(() => _move.Execute());
 
     }
 }
