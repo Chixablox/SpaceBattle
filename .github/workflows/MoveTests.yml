@@ -4,7 +4,7 @@ name: MoveTests
 on:
   push:
     branches: 
-      -'Lab/**'
+      -'Lab/*'
   pull_request:
     branches: ["main"]
 
