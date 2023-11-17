@@ -2,17 +2,15 @@
 
 public class Vector
 {
-    public int x { get; set; }
-    public int y { get; set; }
+    public int[] coord { get; set; }
 
-    public Vector(int x, int y)
+    public Vector(int[] coord)
     {
-        this.x = x;
-        this.y = y;
+        this.coord = coord;
     }
 
     public static Vector operator +(Vector v1, Vector v2)
     {
-        return new Vector(v1.x + v2.x, v1.y + v2.y);
+        return new Vector(v1.coord.Zip(v2.coord, (x, y) => x + y).ToArray());
     }
 }

@@ -18,7 +18,7 @@ public class MoveTest
     [Given(@"космический корабль находится в точке пространства с координатами \((.*), (.*)\)")]
     public void ДопустимКосмическийКорабльНаходитсяВТочкеПространстваСКоординатами(int x, int y)
     {
-        _movable.SetupGet(m => m.Position).Returns(new Vector(x, y));
+        _movable.SetupGet(m => m.Position).Returns(new Vector(new int[] {x, y}));
     }
 
     [Given(@"космический корабль, положение в пространстве которого невозможно определить")]
@@ -30,7 +30,7 @@ public class MoveTest
     [Given(@"имеет мгновенную скорость \((.*), (.*)\)")]
     public void ДопустимИмеетМгновеннуюСкорость(int x, int y)
     {
-        _movable.SetupGet(m => m.Velocity).Returns(new Vector(x, y));
+        _movable.SetupGet(m => m.Velocity).Returns(new Vector(new int[] {x, y}));
     }
 
     [Given(@"скорость корабля определить невозможно")]
@@ -49,7 +49,7 @@ public class MoveTest
     public void ТоКосмическийКорабльПеремещаетсяВТочкуПространстваСКоординатами(int a, int b)
     {
         _move.Execute();
-        _movable.VerifySet(m => m.Position = It.Is<Vector>(p => p.x == a && p.y == b));
+        _movable.VerifySet(m => m.Position = It.Is<Vector>(p => p.coord[0] == a && p.coord[1] == b));
     }
 
     [Then(@"возникает ошибка Exception")]
