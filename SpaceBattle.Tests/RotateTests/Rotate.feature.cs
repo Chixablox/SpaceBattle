@@ -115,16 +115,16 @@ namespace SpaceBattle.Tests.RotateTests
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="Если невозможно определить угол наклона к оси OX космического корабля, то вращени" +
-            "е вокруг собственной оси  невозможно")]
+            "е вокруг собственной оси невозможно")]
         [Xunit.TraitAttribute("FeatureTitle", "Поворот")]
         [Xunit.TraitAttribute("Description", "Если невозможно определить угол наклона к оси OX космического корабля, то вращени" +
-            "е вокруг собственной оси  невозможно")]
+            "е вокруг собственной оси невозможно")]
         public void ЕслиНевозможноОпределитьУголНаклонаКОсиOXКосмическогоКорабляТоВращениеВокругСобственнойОсиНевозможно()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Если невозможно определить угол наклона к оси OX космического корабля, то вращени" +
-                    "е вокруг собственной оси  невозможно", null, tagsOfScenario, argumentsOfScenario, featureTags);
+                    "е вокруг собственной оси невозможно", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -152,16 +152,16 @@ namespace SpaceBattle.Tests.RotateTests
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="Если невозможно определить мгновенную угловую скорость космического корабля, то в" +
-            "ращение вокруг собственной оси  невозможно")]
+            "ращение вокруг собственной оси невозможно")]
         [Xunit.TraitAttribute("FeatureTitle", "Поворот")]
         [Xunit.TraitAttribute("Description", "Если невозможно определить мгновенную угловую скорость космического корабля, то в" +
-            "ращение вокруг собственной оси  невозможно")]
+            "ращение вокруг собственной оси невозможно")]
         public void ЕслиНевозможноОпределитьМгновеннуюУгловуюСкоростьКосмическогоКорабляТоВращениеВокругСобственнойОсиНевозможно()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Если невозможно определить мгновенную угловую скорость космического корабля, то в" +
-                    "ращение вокруг собственной оси  невозможно", null, tagsOfScenario, argumentsOfScenario, featureTags);
+                    "ращение вокруг собственной оси невозможно", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 13
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -189,16 +189,16 @@ namespace SpaceBattle.Tests.RotateTests
         }
         
         [Xunit.SkippableFactAttribute(DisplayName="Если невозможно установить новый угол наклона космического корабля космического к" +
-            "орабля, то вращение вокруг собственной оси  невозможно")]
+            "орабля, то вращение вокруг собственной оси невозможно")]
         [Xunit.TraitAttribute("FeatureTitle", "Поворот")]
         [Xunit.TraitAttribute("Description", "Если невозможно установить новый угол наклона космического корабля космического к" +
-            "орабля, то вращение вокруг собственной оси  невозможно")]
+            "орабля, то вращение вокруг собственной оси невозможно")]
         public void ЕслиНевозможноУстановитьНовыйУголНаклонаКосмическогоКорабляКосмическогоКорабляТоВращениеВокругСобственнойОсиНевозможно()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Если невозможно установить новый угол наклона космического корабля космического к" +
-                    "орабля, то вращение вокруг собственной оси  невозможно", null, tagsOfScenario, argumentsOfScenario, featureTags);
+                    "орабля, то вращение вокруг собственной оси невозможно", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 19
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
