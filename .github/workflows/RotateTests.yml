@@ -3,7 +3,7 @@ name: RotateTests
 
 on:
   push:
-    branches: ["Lab1_Ex2_Mrdak"]
+    branches: ["Lab/**"]
   pull_request:
     branches: ['main']
   
