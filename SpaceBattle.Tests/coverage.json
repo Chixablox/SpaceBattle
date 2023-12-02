@@ -1,0 +1,52 @@
+{
+  "SpaceBattle.Lib.dll": {
+    "/home/ubuntu/projects/SpaceBattle/SpaceBattle.Lib/Move.cs": {
+      "SpaceBattle.Lib.MoveCommand": {
+        "System.Void SpaceBattle.Lib.MoveCommand::Execute()": {
+          "Lines": {
+            "13": 4,
+            "14": 4,
+            "15": 1
+          },
+          "Branches": []
+        },
+        "System.Void SpaceBattle.Lib.MoveCommand::.ctor(SpaceBattle.Lib.IMovable)": {
+          "Lines": {
+            "7": 4,
+            "8": 4,
+            "9": 4,
+            "10": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/ubuntu/projects/SpaceBattle/SpaceBattle.Lib/Vector.cs": {
+      "SpaceBattle.Lib.Vector": {
+        "System.Int32[] SpaceBattle.Lib.Vector::get_coord()": {
+          "Lines": {
+            "5": 11
+          },
+          "Branches": []
+        },
+        "SpaceBattle.Lib.Vector SpaceBattle.Lib.Vector::op_Addition(SpaceBattle.Lib.Vector,SpaceBattle.Lib.Vector)": {
+          "Lines": {
+            "13": 1,
+            "14": 3,
+            "15": 1
+          },
+          "Branches": []
+        },
+        "System.Void SpaceBattle.Lib.Vector::.ctor(System.Int32[])": {
+          "Lines": {
+            "7": 7,
+            "8": 7,
+            "9": 7,
+            "10": 7
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}
