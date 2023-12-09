@@ -13,6 +13,9 @@ public class StartCommand : ICommand
 
     public void Execute()
     {
-
+        _order.InitialValues.ToList().ForEach(value => IoC.Resolve<ICommand>("Game.Object.SetProperty", _order.Target, value.Key, value.Value));
+        var cmd = IoC.Resolve<ICommand>("Game.Command." + _order.Command, _order.Target);
+        IoC.Resolve<ICommand>("Game.Object.SetProperty", _order.Target, _order.Command, cmd);
+        IoC.Resolve<IQueue>("Game.Queue").Add(cmd);
     }
 }
