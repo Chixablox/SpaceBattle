@@ -24,27 +24,13 @@ public class StartMoveCommandTests
     private readonly Queue<SpaceBattle.Lib.ICommand> _queueReal = new();
     private readonly Mock<IQueue> _queue = new();
 
-    [When("приказ обрабатывается")]
-    public void КогдаПриказОбрабатывается()
-    {
-        _startMove = new StartCommand(_order.Object);
-    }
+    private readonly Mock<IUObject> _uObject = new();
 
-    [Given(@"отдан приказ на движение космического корабля, начальная позиция корабля \((.*), (.*)\) и мнгоновенная скорсоть корабля \((.*), (.*)\)")]
-    public void ДопустимОтданПриказНаДвижениеКосмическогоКорабляНачальнаяПозицияКорабляИМнгоновеннаяСкорсотьКорабля(int x, int y, int dx, int dy)
-    {
-        
-        var initialValues = new Dictionary<string, object>
-        {
-            { "Position", new Vector(new int[] { x, y }) },
-            { "Velocity", new Vector(new int[] { dx, dy }) }
-        };
-        var uObject = new Mock<IUObject>();
-        var dictionaryForUObject = new Dictionary<string, object>();
-        var cmd = "Move";
-        
+    public StartMoveCommandTests(){
+
         new InitScopeBasedIoCImplementationCommand().Execute();
         IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Root"))).Execute();
+
         IoC.Resolve<Hwdtech.ICommand>(
         "IoC.Register",
         "Game.Object.SetProperty",
@@ -85,11 +71,31 @@ public class StartMoveCommandTests
         }
         ).Execute();
 
-        _order.SetupGet(order => order.Target).Returns(uObject.Object);
+    }
+
+    [When("приказ обрабатывается")]
+    public void КогдаПриказОбрабатывается()
+    {
+        _startMove = new StartCommand(_order.Object);
+    }
+
+    [Given(@"отдан приказ на движение космического корабля, начальная позиция корабля \((.*), (.*)\) и мнгоновенная скорсоть корабля \((.*), (.*)\)")]
+    public void ДопустимОтданПриказНаДвижениеКосмическогоКорабляНачальнаяПозицияКорабляИМнгоновеннаяСкорсотьКорабля(int x, int y, int dx, int dy)
+    {
+        
+        var initialValues = new Dictionary<string, object>
+        {
+            { "Position", new Vector(new int[] { x, y }) },
+            { "Velocity", new Vector(new int[] { dx, dy }) }
+        };
+        var dictionaryForUObject = new Dictionary<string, object>();
+        var cmd = "Move";
+        
+        _order.SetupGet(order => order.Target).Returns(_uObject.Object);
         _order.SetupGet(order => order.Command).Returns(cmd);
         _order.SetupGet(order => order.InitialValues).Returns(initialValues);
 
-        uObject.Setup(uObject => uObject.SetProperty(It.IsAny<string>(), It.IsAny<object>())).Callback<string, object>(dictionaryForUObject.Add);
+        _uObject.Setup(uObject => uObject.SetProperty(It.IsAny<string>(), It.IsAny<object>())).Callback<string, object>(dictionaryForUObject.Add);
 
         _queue.Setup(queue => queue.Add(It.IsAny<SpaceBattle.Lib.ICommand>())).Callback(_queueReal.Enqueue);
 
@@ -101,6 +107,12 @@ public class StartMoveCommandTests
     {
         _startMove.Execute();
         Assert.NotEmpty(_queueReal);
+    }
+
+    [Given(@"космическому кораблю невозмозжно установить свойства")]
+    public void ДопустимКосмическомуКораблюНевозмозжноУстановитьСвойства()
+    {
+        _uObject.Setup(uObject => uObject.SetProperty(It.IsAny<string>(), It.IsAny<object>())).Throws<Exception>();
     }
 
     [Given(@"команду нельзя добавить в очередь")]

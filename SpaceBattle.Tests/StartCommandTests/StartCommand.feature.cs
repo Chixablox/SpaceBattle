@@ -147,6 +147,41 @@ namespace SpaceBattle.Tests.StartCommandTests
             this.ScenarioCleanup();
         }
         
+        [Xunit.SkippableFactAttribute(DisplayName="Если игровому объекту не могут быть добавлены новые свойства")]
+        [Xunit.TraitAttribute("FeatureTitle", "Начало движения")]
+        [Xunit.TraitAttribute("Description", "Если игровому объекту не могут быть добавлены новые свойства")]
+        public void ЕслиИгровомуОбъектуНеМогутБытьДобавленыНовыеСвойства()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Если игровому объекту не могут быть добавлены новые свойства", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 14
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 15
+        testRunner.Given("отдан приказ на движение космического корабля, начальная позиция корабля (0, 0) и" +
+                        " мнгоновенная скорсоть корабля (1, 1)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+#line hidden
+#line 16
+        testRunner.And("космическому кораблю невозмозжно установить свойства", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
+#line hidden
+#line 17
+        testRunner.When("приказ обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
+#line hidden
+#line 18
+        testRunner.Then("возникает ошибка", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable
