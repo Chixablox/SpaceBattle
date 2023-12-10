@@ -19,22 +19,21 @@ public class ActionCommand : SpaceBattle.Lib.ICommand
 [Binding]
 public class StartMoveCommandTests
 {
-    private readonly Mock<IOrder> _order = new Mock<IOrder>();
+    private readonly Mock<IOrder> _order = new();
     private StartCommand _startMove;
-    private Queue<SpaceBattle.Lib.ICommand> _queue = new Queue<SpaceBattle.Lib.ICommand>();
-    private Mock<IQueue> _qMock = new Mock<IQueue>();
+    private readonly Queue<SpaceBattle.Lib.ICommand> _queueReal = new();
+    private readonly Mock<IQueue> _queue = new();
 
     [When("приказ обрабатывается")]
     public void КогдаПриказОбрабатывается()
     {
-        _startMove.Execute();
+        _startMove = new StartCommand(_order.Object);
     }
 
     [Given(@"отдан приказ на движение космического корабля, начальная позиция корабля \((.*), (.*)\) и мнгоновенная скорсоть корабля \((.*), (.*)\)")]
     public void ДопустимОтданПриказНаДвижениеКосмическогоКорабляНачальнаяПозицияКорабляИМнгоновеннаяСкорсотьКорабля(int x, int y, int dx, int dy)
     {
-        var order = new Mock<IOrder>();
-        var queue = new Mock<IQueue>();
+        
         var initialValues = new Dictionary<string, object>
         {
             { "Position", new Vector(new int[] { x, y }) },
@@ -45,16 +44,17 @@ public class StartMoveCommandTests
         var cmd = "Move";
         
         new InitScopeBasedIoCImplementationCommand().Execute();
+        IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Root"))).Execute();
         IoC.Resolve<Hwdtech.ICommand>(
         "IoC.Register",
         "Game.Object.SetProperty",
         (object[] args) =>
         {
-            var order = (IUObject)args[0];
+            var target = (IUObject)args[0];
             var key = (string)args[1];
             var value = args[2];
 
-            order.SetProperty(key, value);
+            target.SetProperty(key, value);
             return new object();
         }
         ).Execute();
@@ -65,9 +65,9 @@ public class StartMoveCommandTests
         "Game.Command.Move",
         (object[] args) =>
         {
-            var order = (IUObject)args[0];
-            var pos = (Vector)order.GetProperty("Position");
-            var vel = (Vector)order.GetProperty("Velocity");
+            var target = (IUObject)args[0];
+            var pos = (Vector)target.GetProperty("Position");
+            var vel = (Vector)target.GetProperty("Velocity");
             var movable = new Mock<IMovable>();
             movable.SetupGet(m => m.Position).Returns(pos);
             movable.SetupGet(m => m.Velocity).Returns(vel);
@@ -81,29 +81,36 @@ public class StartMoveCommandTests
         "Game.Queue",
         (object[] args) =>
         {
-            return queue.Object;
+            return _queue.Object;
         }
         ).Execute();
 
-        order.SetupGet(order => order.Target).Returns(uObject.Object);
-        order.SetupGet(order => order.Command).Returns(cmd);
-        order.SetupGet(order => order.InitialValues).Returns(initialValues);
+        _order.SetupGet(order => order.Target).Returns(uObject.Object);
+        _order.SetupGet(order => order.Command).Returns(cmd);
+        _order.SetupGet(order => order.InitialValues).Returns(initialValues);
 
         uObject.Setup(uObject => uObject.SetProperty(It.IsAny<string>(), It.IsAny<object>())).Callback<string, object>(dictionaryForUObject.Add);
 
-        queue.Setup(queue => queue.Add(It.IsAny<SpaceBattle.Lib.ICommand>())).Callback(_queue.Enqueue);
+        _queue.Setup(queue => queue.Add(It.IsAny<SpaceBattle.Lib.ICommand>())).Callback(_queueReal.Enqueue);
 
-        _startMove = new StartCommand(order.Object);
+        
     }
 
     [Then(@"команада, отданная игровому объекту, успешно добалвяется в очередь")]
     public void ТоКоманадаОтданнаяИгровомуОбъектуУспешноДобалвяетсяВОчередь()
     {
-        Assert.NotEmpty(_queue);
+        _startMove.Execute();
+        Assert.NotEmpty(_queueReal);
     }
 
-    [Then(@"возникает ошибка Exception")]
-    public void ТоВозникаетОшибкаException()
+    [Given(@"команду нельзя добавить в очередь")]
+    public void ДопустимКомандуНельзяДобавитьВОчередь()
+    {
+        _queue.Setup(queue => queue.Add(It.IsAny<SpaceBattle.Lib.ICommand>())).Throws<Exception>();
+    }
+
+    [Then(@"возникает ошибка")]
+    public void ТоВозникаетОшибка()
     {
         Assert.Throws<Exception>(() => _startMove.Execute());
     }

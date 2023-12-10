@@ -12,10 +12,10 @@
         },
         "System.Void SpaceBattle.Lib.MoveCommand::.ctor(SpaceBattle.Lib.IMovable)": {
           "Lines": {
-            "7": 5,
-            "8": 5,
-            "9": 5,
-            "10": 5
+            "7": 6,
+            "8": 6,
+            "9": 6,
+            "10": 6
           },
           "Branches": []
         }
@@ -25,21 +25,21 @@
       "SpaceBattle.Lib.StartCommand": {
         "System.Void SpaceBattle.Lib.StartCommand::Execute()": {
           "Lines": {
-            "15": 1,
-            "16": 3,
-            "17": 1,
-            "18": 1,
-            "19": 1,
+            "15": 2,
+            "16": 6,
+            "17": 2,
+            "18": 2,
+            "19": 2,
             "20": 1
           },
           "Branches": []
         },
         "System.Void SpaceBattle.Lib.StartCommand::.ctor(SpaceBattle.Lib.IOrder)": {
           "Lines": {
-            "9": 1,
-            "10": 1,
-            "11": 1,
-            "12": 1
+            "9": 2,
+            "10": 2,
+            "11": 2,
+            "12": 2
           },
           "Branches": []
         }
@@ -49,7 +49,7 @@
       "SpaceBattle.Lib.Vector": {
         "System.Int32[] SpaceBattle.Lib.Vector::get_coord()": {
           "Lines": {
-            "5": 13
+            "5": 15
           },
           "Branches": []
         },
@@ -63,10 +63,10 @@
         },
         "System.Void SpaceBattle.Lib.Vector::.ctor(System.Int32[])": {
           "Lines": {
-            "7": 9,
-            "8": 9,
-            "9": 9,
-            "10": 9
+            "7": 11,
+            "8": 11,
+            "9": 11,
+            "10": 11
           },
           "Branches": []
         }
