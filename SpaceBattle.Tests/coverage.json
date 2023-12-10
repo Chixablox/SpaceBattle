@@ -25,9 +25,9 @@
       "SpaceBattle.Lib.StartCommand": {
         "System.Void SpaceBattle.Lib.StartCommand::Execute()": {
           "Lines": {
-            "15": 3,
-            "16": 8,
-            "17": 2,
+            "15": 4,
+            "16": 11,
+            "17": 3,
             "18": 2,
             "19": 2,
             "20": 1
@@ -36,10 +36,10 @@
         },
         "System.Void SpaceBattle.Lib.StartCommand::.ctor(SpaceBattle.Lib.IOrder)": {
           "Lines": {
-            "9": 3,
-            "10": 3,
-            "11": 3,
-            "12": 3
+            "9": 4,
+            "10": 4,
+            "11": 4,
+            "12": 4
           },
           "Branches": []
         }
@@ -49,7 +49,7 @@
       "SpaceBattle.Lib.Vector": {
         "System.Int32[] SpaceBattle.Lib.Vector::get_coord()": {
           "Lines": {
-            "5": 17
+            "5": 19
           },
           "Branches": []
         },
@@ -63,10 +63,10 @@
         },
         "System.Void SpaceBattle.Lib.Vector::.ctor(System.Int32[])": {
           "Lines": {
-            "7": 13,
-            "8": 13,
-            "9": 13,
-            "10": 13
+            "7": 15,
+            "8": 15,
+            "9": 15,
+            "10": 15
           },
           "Branches": []
         }

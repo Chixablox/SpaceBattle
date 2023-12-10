@@ -182,6 +182,41 @@ namespace SpaceBattle.Tests.StartCommandTests
             this.ScenarioCleanup();
         }
         
+        [Xunit.SkippableFactAttribute(DisplayName="Если свойства игрового объекта невозможно прочитать")]
+        [Xunit.TraitAttribute("FeatureTitle", "Начало движения")]
+        [Xunit.TraitAttribute("Description", "Если свойства игрового объекта невозможно прочитать")]
+        public void ЕслиСвойстваИгровогоОбъектаНевозможноПрочитать()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Если свойства игрового объекта невозможно прочитать", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 20
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 21
+        testRunner.Given("отдан приказ на движение космического корабля, начальная позиция корабля (0, 0) и" +
+                        " мнгоновенная скорсоть корабля (1, 1)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+#line hidden
+#line 22
+        testRunner.And("свойства космического корабля невозможно прочитать", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
+#line hidden
+#line 23
+        testRunner.When("приказ обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
+#line hidden
+#line 24
+        testRunner.Then("возникает ошибка", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

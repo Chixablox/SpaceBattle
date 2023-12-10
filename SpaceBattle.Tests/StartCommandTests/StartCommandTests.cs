@@ -73,12 +73,6 @@ public class StartMoveCommandTests
 
     }
 
-    [When("приказ обрабатывается")]
-    public void КогдаПриказОбрабатывается()
-    {
-        _startMove = new StartCommand(_order.Object);
-    }
-
     [Given(@"отдан приказ на движение космического корабля, начальная позиция корабля \((.*), (.*)\) и мнгоновенная скорсоть корабля \((.*), (.*)\)")]
     public void ДопустимОтданПриказНаДвижениеКосмическогоКорабляНачальнаяПозицияКорабляИМнгоновеннаяСкорсотьКорабля(int x, int y, int dx, int dy)
     {
@@ -96,17 +90,9 @@ public class StartMoveCommandTests
         _order.SetupGet(order => order.InitialValues).Returns(initialValues);
 
         _uObject.Setup(uObject => uObject.SetProperty(It.IsAny<string>(), It.IsAny<object>())).Callback<string, object>(dictionaryForUObject.Add);
+        _uObject.Setup(uObject => uObject.GetProperty(It.IsAny<string>())).Returns((string key) => dictionaryForUObject[key]);
 
         _queue.Setup(queue => queue.Add(It.IsAny<SpaceBattle.Lib.ICommand>())).Callback(_queueReal.Enqueue);
-
-        
-    }
-
-    [Then(@"команада, отданная игровому объекту, успешно добалвяется в очередь")]
-    public void ТоКоманадаОтданнаяИгровомуОбъектуУспешноДобалвяетсяВОчередь()
-    {
-        _startMove.Execute();
-        Assert.NotEmpty(_queueReal);
     }
 
     [Given(@"космическому кораблю невозмозжно установить свойства")]
@@ -115,10 +101,29 @@ public class StartMoveCommandTests
         _uObject.Setup(uObject => uObject.SetProperty(It.IsAny<string>(), It.IsAny<object>())).Throws<Exception>();
     }
 
+    [Given(@"свойства космического корабля невозможно прочитать")]
+    public void ДопустимСвойстваКосмическогоКорабляНевозможноПрочитать()
+    {
+        _uObject.Setup(uObject => uObject.GetProperty(It.IsAny<string>())).Throws<Exception>();
+    }
+
     [Given(@"команду нельзя добавить в очередь")]
     public void ДопустимКомандуНельзяДобавитьВОчередь()
     {
         _queue.Setup(queue => queue.Add(It.IsAny<SpaceBattle.Lib.ICommand>())).Throws<Exception>();
+    }
+
+    [When("приказ обрабатывается")]
+    public void КогдаПриказОбрабатывается()
+    {
+        _startMove = new StartCommand(_order.Object);
+    }
+
+    [Then(@"команада, отданная игровому объекту, успешно добалвяется в очередь")]
+    public void ТоКоманадаОтданнаяИгровомуОбъектуУспешноДобалвяетсяВОчередь()
+    {
+        _startMove.Execute();
+        Assert.NotEmpty(_queueReal);
     }
 
     [Then(@"возникает ошибка")]
