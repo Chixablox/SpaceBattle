@@ -1,13 +1,14 @@
+using System.Collections;
 using Hwdtech;
 
 namespace SpaceBattle.Lib;
 
-public class CheckCollision : ICommand
+public class CheckCollisionCommand : ICommand
 {
     private readonly IUObject _obj1;
     private readonly IUObject _obj2;
 
-    public CheckCollision(IUObject obj1, IUObject obj2)
+    public CheckCollisionCommand(IUObject obj1, IUObject obj2)
     {
         _obj1 = obj1;
         _obj2 = obj2;
@@ -26,13 +27,10 @@ public class CheckCollision : ICommand
         newCoord[2] = vel2.coord[0] - vel1.coord[0];
         newCoord[3] = vel2.coord[1] - pos1.coord[1];
 
-        Action defaultAction = ()=> throw new Exception("NotCollision!");
+        var tree = IoC.Resolve<Hashtable>("Game.Collision.GetTree");
 
-        var tree = IoC.Resolve<IReadOnlyDictionary<object, object>>("Game.Collision.GetTree");
+        newCoord.ToList().ForEach(c => tree = (Hashtable)tree.GetValueOrThrowException(c));
 
-        newCoord.ToList().ForEach(c => tree = (IReadOnlyDictionary<object, object>)tree.GetValueOrDefault(c, defaultAction));
-
-        IoC.Resolve<object>("Game.Collision.Process");
-    }
+        IoC.Resolve<object>("Game.Collision.Process", tree);}
 }
 
