@@ -9,3 +9,4 @@ public static class HashTableExp
         return hashtable.ContainsKey(key) ? hashtable[key] : throw new Exception("NotCollision!");
     } 
 }
+
