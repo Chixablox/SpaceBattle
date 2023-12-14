@@ -26,13 +26,13 @@ public class CheckCollision : ICommand
         newCoord[2] = vel2.coord[0] - vel1.coord[0];
         newCoord[3] = vel2.coord[1] - pos1.coord[1];
 
-        Action defaultAction = ()=> throw new Exception("Collision!");
+        Action defaultAction = ()=> throw new Exception("NotCollision!");
 
-        var tree = IoC.Resolve<IDictionary<object, object>>("Game.Collision.GetTree");
+        var tree = IoC.Resolve<IReadOnlyDictionary<object, object>>("Game.Collision.GetTree");
 
-        newCoord.ToList().ForEach(c => tree = (IDictionary<object, object>)tree[c]);
+        newCoord.ToList().ForEach(c => tree = (IReadOnlyDictionary<object, object>)tree.GetValueOrDefault(c, defaultAction));
 
-        IoC.Resolve<Exception>("Game.Collision.Process");
+        IoC.Resolve<object>("Game.Collision.Process");
     }
 }
 
