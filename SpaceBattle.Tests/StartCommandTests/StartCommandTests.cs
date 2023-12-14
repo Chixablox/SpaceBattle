@@ -132,3 +132,4 @@ public class StartMoveCommandTests
         Assert.Throws<Exception>(() => _startMove.Execute());
     }
 }
+
