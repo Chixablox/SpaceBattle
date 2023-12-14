@@ -115,15 +115,15 @@ public class CheckCollisionTests
         _checkCollision = new CheckCollisionCommand(_uObject1.Object, _uObject2.Object);
     }
     
-    [Then(@"возникает ошибка Collisison")]
-    public void ТоВозникаетОшибкаCollisison()
+    [Then(@"выкидывается исключение с сообщением Collisison")]
+    public void ТоВыкидываетсяИсключениеССообщениемCollisison()
     {
         var exception = Assert.Throws<Exception>(() => _checkCollision.Execute());
         Assert.Equal("Collision!", exception.Message);
     }
 
-    [Then(@"возникает ошибка NotCollision")]
-    public void ТоВозникаетОшибкаNotCollision()
+    [Then(@"выкидывается исключение с сообщением NotCollision")]
+    public void ТоВыкидываетсяИсключениеССообщениемNotCollision()
     {
         var exception = Assert.Throws<Exception>(() => _checkCollision.Execute());
         Assert.Equal("NotCollision!", exception.Message);

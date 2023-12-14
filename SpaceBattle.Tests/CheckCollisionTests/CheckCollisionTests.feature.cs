@@ -110,7 +110,7 @@ namespace SpaceBattle.Tests.CheckCollisionTests
         testRunner.When("происходит проверка на коллизию", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 7
-        testRunner.Then("возникает ошибка Collisison", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
+        testRunner.Then("выкидывается исключение с сообщением Collisison", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -146,20 +146,20 @@ namespace SpaceBattle.Tests.CheckCollisionTests
         testRunner.When("происходит проверка на коллизию", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 14
-        testRunner.Then("возникает ошибка NotCollision", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
+        testRunner.Then("выкидывается исключение с сообщением NotCollision", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Если невозможно прочитать свойства игрововго объекта")]
+        [Xunit.SkippableFactAttribute(DisplayName="Невозможно прочитать свойства игрововго объекта")]
         [Xunit.TraitAttribute("FeatureTitle", "Проверка коллизии")]
-        [Xunit.TraitAttribute("Description", "Если невозможно прочитать свойства игрововго объекта")]
-        public void ЕслиНевозможноПрочитатьСвойстваИгрововгоОбъекта()
+        [Xunit.TraitAttribute("Description", "Невозможно прочитать свойства игрововго объекта")]
+        public void НевозможноПрочитатьСвойстваИгрововгоОбъекта()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Если невозможно прочитать свойства игрововго объекта", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Невозможно прочитать свойства игрововго объекта", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 17
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
