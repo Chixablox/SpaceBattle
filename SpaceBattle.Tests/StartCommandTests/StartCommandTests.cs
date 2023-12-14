@@ -6,16 +6,6 @@ using Hwdtech.Ioc;
 using Moq;
 using TechTalk.SpecFlow;
 
-public class ActionCommand : SpaceBattle.Lib.ICommand
-{
-    private readonly Action _action;
-    public ActionCommand(Action action) => _action = action;
-    public void Execute()
-    {
-        _action();
-    }
-}
-
 [Binding]
 public class StartMoveCommandTests
 {
