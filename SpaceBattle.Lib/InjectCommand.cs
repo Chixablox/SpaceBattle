@@ -18,3 +18,4 @@ public class InjectCommand : ICommand, IInjectable
         _cmd.Execute();
     }
 }
+
