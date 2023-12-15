@@ -1,4 +1,4 @@
-namespace SpaveBattle.Tests;
+namespace SpaceBattle.Tests;
 
 using SpaceBattle.Lib;
 using Hwdtech;
