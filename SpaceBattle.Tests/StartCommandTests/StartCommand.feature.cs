@@ -112,14 +112,17 @@ namespace SpaceBattle.Tests.StartCommandTests
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Если команда, отданная игровому объекту, не может быть добавлена в очередь")]
+        [Xunit.SkippableFactAttribute(DisplayName="Команда, отданная игровому объекту, успешно добавляется в очередь, достаётся и вы" +
+            "полняется")]
         [Xunit.TraitAttribute("FeatureTitle", "Начало движения")]
-        [Xunit.TraitAttribute("Description", "Если команда, отданная игровому объекту, не может быть добавлена в очередь")]
-        public void ЕслиКомандаОтданнаяИгровомуОбъектуНеМожетБытьДобавленаВОчередь()
+        [Xunit.TraitAttribute("Description", "Команда, отданная игровому объекту, успешно добавляется в очередь, достаётся и вы" +
+            "полняется")]
+        public void КомандаОтданнаяИгровомуОбъектуУспешноДобавляетсяВОчередьДостаётсяИВыполняется()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Если команда, отданная игровому объекту, не может быть добавлена в очередь", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Команда, отданная игровому объекту, успешно добавляется в очередь, достаётся и вы" +
+                    "полняется", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 8
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -135,12 +138,45 @@ namespace SpaceBattle.Tests.StartCommandTests
                         " мнгоновенная скорсоть корабля (1, 1)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
 #line 10
-        testRunner.And("команду нельзя добавить в очередь", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
-#line hidden
-#line 11
         testRunner.When("приказ обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
-#line 12
+#line 11
+        testRunner.Then("команада, отданная игровому объекту, успешно добалвяется в очередь, достаётся и в" +
+                        "ыпоняется", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Если команда, отданная игровому объекту, не может быть добавлена в очередь")]
+        [Xunit.TraitAttribute("FeatureTitle", "Начало движения")]
+        [Xunit.TraitAttribute("Description", "Если команда, отданная игровому объекту, не может быть добавлена в очередь")]
+        public void ЕслиКомандаОтданнаяИгровомуОбъектуНеМожетБытьДобавленаВОчередь()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Если команда, отданная игровому объекту, не может быть добавлена в очередь", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 13
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 14
+        testRunner.Given("отдан приказ на движение космического корабля, начальная позиция корабля (0, 0) и" +
+                        " мнгоновенная скорсоть корабля (1, 1)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+#line hidden
+#line 15
+        testRunner.And("команду нельзя добавить в очередь", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
+#line hidden
+#line 16
+        testRunner.When("приказ обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
+#line hidden
+#line 17
         testRunner.Then("возникает ошибка", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
@@ -155,7 +191,7 @@ namespace SpaceBattle.Tests.StartCommandTests
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Если игровому объекту не могут быть добавлены новые свойства", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 14
+#line 19
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -165,17 +201,17 @@ namespace SpaceBattle.Tests.StartCommandTests
             else
             {
                 this.ScenarioStart();
-#line 15
+#line 20
         testRunner.Given("отдан приказ на движение космического корабля, начальная позиция корабля (0, 0) и" +
                         " мнгоновенная скорсоть корабля (1, 1)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
-#line 16
+#line 21
         testRunner.And("космическому кораблю невозмозжно установить свойства", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
 #line hidden
-#line 17
+#line 22
         testRunner.When("приказ обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
-#line 18
+#line 23
         testRunner.Then("возникает ошибка", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
@@ -190,7 +226,7 @@ namespace SpaceBattle.Tests.StartCommandTests
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Если свойства игрового объекта невозможно прочитать", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 20
+#line 25
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -200,17 +236,17 @@ namespace SpaceBattle.Tests.StartCommandTests
             else
             {
                 this.ScenarioStart();
-#line 21
+#line 26
         testRunner.Given("отдан приказ на движение космического корабля, начальная позиция корабля (0, 0) и" +
                         " мнгоновенная скорсоть корабля (1, 1)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
-#line 22
+#line 27
         testRunner.And("свойства космического корабля невозможно прочитать", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
 #line hidden
-#line 23
+#line 28
         testRunner.When("приказ обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
-#line 24
+#line 29
         testRunner.Then("возникает ошибка", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }

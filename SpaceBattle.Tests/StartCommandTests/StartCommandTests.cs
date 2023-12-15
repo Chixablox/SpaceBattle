@@ -35,10 +35,11 @@ public class StartMoveCommandTests
         }
         ).Execute();
 
-        var moveCommand = new Mock<SpaceBattle.Lib.ICommand>();
+        var cmd = new Mock<SpaceBattle.Lib.ICommand>().Object;
+        var injectCommand = new InjectCommand(cmd);
         IoC.Resolve<Hwdtech.ICommand>(
         "IoC.Register",
-        "Game.Command.Move",
+        "Game.Command.Inject.Move",
         (object[] args) =>
         {
             var target = (IUObject)args[0];
@@ -48,7 +49,8 @@ public class StartMoveCommandTests
             movable.SetupGet(m => m.Position).Returns(pos);
             movable.SetupGet(m => m.Velocity).Returns(vel);
             var move = new MoveCommand(movable.Object);
-            return move;
+            injectCommand.Inject(move);
+            return injectCommand;
         }
         ).Execute();
 
@@ -83,6 +85,7 @@ public class StartMoveCommandTests
         _uObject.Setup(uObject => uObject.GetProperty(It.IsAny<string>())).Returns((string key) => dictionaryForUObject[key]);
 
         _queue.Setup(queue => queue.Add(It.IsAny<SpaceBattle.Lib.ICommand>())).Callback(_queueReal.Enqueue);
+        _queue.Setup(queue => queue.Take()).Returns(()=> _queueReal.Dequeue());
     }
 
     [Given(@"космическому кораблю невозмозжно установить свойства")]
@@ -114,6 +117,16 @@ public class StartMoveCommandTests
     {
         _startMove.Execute();
         Assert.NotEmpty(_queueReal);
+    }
+
+    [Then(@"команада, отданная игровому объекту, успешно добалвяется в очередь, достаётся и выпоняется")]
+    public void ТоКоманадаОтданнаяИгровомуОбъектуУспешноДобалвяетсяВОчередьДостаётсяИВыпоняется()
+    {
+        _startMove.Execute();
+        Assert.NotEmpty(_queueReal);
+        _queue.Object.Take().Execute();
+        Assert.Empty(_queueReal);
+
     }
 
     [Then(@"возникает ошибка")]

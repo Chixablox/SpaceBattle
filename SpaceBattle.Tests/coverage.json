@@ -1,21 +1,50 @@
 {
   "SpaceBattle.Lib.dll": {
+    "/home/ubuntu/projects/SpaceBattle/SpaceBattle.Lib/InjectCommand.cs": {
+      "SpaceBattle.Lib.InjectCommand": {
+        "System.Void SpaceBattle.Lib.InjectCommand::Inject(SpaceBattle.Lib.ICommand)": {
+          "Lines": {
+            "12": 3,
+            "13": 3,
+            "14": 3
+          },
+          "Branches": []
+        },
+        "System.Void SpaceBattle.Lib.InjectCommand::Execute()": {
+          "Lines": {
+            "17": 1,
+            "18": 1,
+            "19": 1
+          },
+          "Branches": []
+        },
+        "System.Void SpaceBattle.Lib.InjectCommand::.ctor(SpaceBattle.Lib.ICommand)": {
+          "Lines": {
+            "6": 5,
+            "7": 5,
+            "8": 5,
+            "9": 5
+          },
+          "Branches": []
+        }
+      }
+    },
     "/home/ubuntu/projects/SpaceBattle/SpaceBattle.Lib/Move.cs": {
       "SpaceBattle.Lib.MoveCommand": {
         "System.Void SpaceBattle.Lib.MoveCommand::Execute()": {
           "Lines": {
-            "13": 4,
-            "14": 4,
-            "15": 1
+            "13": 5,
+            "14": 5,
+            "15": 2
           },
           "Branches": []
         },
         "System.Void SpaceBattle.Lib.MoveCommand::.ctor(SpaceBattle.Lib.IMovable)": {
           "Lines": {
-            "7": 6,
-            "8": 6,
-            "9": 6,
-            "10": 6
+            "7": 7,
+            "8": 7,
+            "9": 7,
+            "10": 7
           },
           "Branches": []
         }
@@ -25,21 +54,21 @@
       "SpaceBattle.Lib.StartCommand": {
         "System.Void SpaceBattle.Lib.StartCommand::Execute()": {
           "Lines": {
-            "15": 4,
-            "16": 11,
-            "17": 3,
-            "18": 2,
-            "19": 2,
-            "20": 1
+            "15": 5,
+            "16": 14,
+            "17": 4,
+            "18": 3,
+            "19": 3,
+            "20": 2
           },
           "Branches": []
         },
         "System.Void SpaceBattle.Lib.StartCommand::.ctor(SpaceBattle.Lib.IOrder)": {
           "Lines": {
-            "9": 4,
-            "10": 4,
-            "11": 4,
-            "12": 4
+            "9": 5,
+            "10": 5,
+            "11": 5,
+            "12": 5
           },
           "Branches": []
         }
@@ -49,24 +78,24 @@
       "SpaceBattle.Lib.Vector": {
         "System.Int32[] SpaceBattle.Lib.Vector::get_coord()": {
           "Lines": {
-            "5": 19
+            "5": 24
           },
           "Branches": []
         },
         "SpaceBattle.Lib.Vector SpaceBattle.Lib.Vector::op_Addition(SpaceBattle.Lib.Vector,SpaceBattle.Lib.Vector)": {
           "Lines": {
-            "13": 1,
-            "14": 3,
-            "15": 1
+            "13": 2,
+            "14": 6,
+            "15": 2
           },
           "Branches": []
         },
         "System.Void SpaceBattle.Lib.Vector::.ctor(System.Int32[])": {
           "Lines": {
-            "7": 15,
-            "8": 15,
-            "9": 15,
-            "10": 15
+            "7": 18,
+            "8": 18,
+            "9": 18,
+            "10": 18
           },
           "Branches": []
         }
