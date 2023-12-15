@@ -138,8 +138,8 @@ public class StartMoveCommandTests
         Assert.Empty(_queueReal);
     }
 
-    [Then(@"возникает ошибка")]
-    public void ТоВозникаетОшибка()
+    [Then(@"возникает исключение")]
+    public void ТоВозникаетИсключение()
     {
         Assert.Throws<Exception>(() => _startMove.Execute());
     }

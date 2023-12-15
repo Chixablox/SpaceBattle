@@ -177,7 +177,7 @@ namespace SpaceBattle.Tests.StartCommandTests
         testRunner.When("приказ обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 17
-        testRunner.Then("возникает ошибка", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
+        testRunner.Then("возникает исключение", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -212,7 +212,7 @@ namespace SpaceBattle.Tests.StartCommandTests
         testRunner.When("приказ обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 23
-        testRunner.Then("возникает ошибка", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
+        testRunner.Then("возникает исключение", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -247,7 +247,7 @@ namespace SpaceBattle.Tests.StartCommandTests
         testRunner.When("приказ обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 29
-        testRunner.Then("возникает ошибка", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
+        testRunner.Then("возникает исключение", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
 #line hidden
             }
             this.ScenarioCleanup();
