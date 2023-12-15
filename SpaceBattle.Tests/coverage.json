@@ -1,6 +1,6 @@
 {
   "SpaceBattle.Lib.dll": {
-    "/home/ubuntu/projects/SpaceBattle/SpaceBattle.Lib/InjectCommand.cs": {
+    "/workspaces/SpaceBattle/SpaceBattle.Lib/InjectCommand.cs": {
       "SpaceBattle.Lib.InjectCommand": {
         "System.Void SpaceBattle.Lib.InjectCommand::Inject(SpaceBattle.Lib.ICommand)": {
           "Lines": {
@@ -29,7 +29,7 @@
         }
       }
     },
-    "/home/ubuntu/projects/SpaceBattle/SpaceBattle.Lib/Move.cs": {
+    "/workspaces/SpaceBattle/SpaceBattle.Lib/Move.cs": {
       "SpaceBattle.Lib.MoveCommand": {
         "System.Void SpaceBattle.Lib.MoveCommand::Execute()": {
           "Lines": {
@@ -50,7 +50,7 @@
         }
       }
     },
-    "/home/ubuntu/projects/SpaceBattle/SpaceBattle.Lib/StartCommand.cs": {
+    "/workspaces/SpaceBattle/SpaceBattle.Lib/StartCommand.cs": {
       "SpaceBattle.Lib.StartCommand": {
         "System.Void SpaceBattle.Lib.StartCommand::Execute()": {
           "Lines": {
@@ -59,7 +59,8 @@
             "17": 4,
             "18": 3,
             "19": 3,
-            "20": 2
+            "20": 3,
+            "21": 2
           },
           "Branches": []
         },
@@ -74,7 +75,7 @@
         }
       }
     },
-    "/home/ubuntu/projects/SpaceBattle/SpaceBattle.Lib/Vector.cs": {
+    "/workspaces/SpaceBattle/SpaceBattle.Lib/Vector.cs": {
       "SpaceBattle.Lib.Vector": {
         "System.Int32[] SpaceBattle.Lib.Vector::get_coord()": {
           "Lines": {

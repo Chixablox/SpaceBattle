@@ -35,11 +35,9 @@ public class StartMoveCommandTests
         }
         ).Execute();
 
-        var cmd = new Mock<SpaceBattle.Lib.ICommand>().Object;
-        var injectCommand = new InjectCommand(cmd);
         IoC.Resolve<Hwdtech.ICommand>(
         "IoC.Register",
-        "Game.Command.Inject.Move",
+        "Game.Command.Move",
         (object[] args) =>
         {
             var target = (IUObject)args[0];
@@ -49,7 +47,19 @@ public class StartMoveCommandTests
             movable.SetupGet(m => m.Position).Returns(pos);
             movable.SetupGet(m => m.Velocity).Returns(vel);
             var move = new MoveCommand(movable.Object);
-            injectCommand.Inject(move);
+            return move;
+        }
+        ).Execute();
+
+        var cmd = new Mock<SpaceBattle.Lib.ICommand>().Object;
+        var injectCommand = new InjectCommand(cmd);
+        IoC.Resolve<Hwdtech.ICommand>(
+        "IoC.Register",
+        "Game.Command.Inject",
+        (object[] args) =>
+        {
+            var cmd = (SpaceBattle.Lib.ICommand)args[0];
+            injectCommand.Inject(cmd);
             return injectCommand;
         }
         ).Execute();
