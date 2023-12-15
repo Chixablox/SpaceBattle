@@ -126,7 +126,6 @@ public class StartMoveCommandTests
         Assert.NotEmpty(_queueReal);
         _queue.Object.Take().Execute();
         Assert.Empty(_queueReal);
-
     }
 
     [Then(@"возникает ошибка")]
