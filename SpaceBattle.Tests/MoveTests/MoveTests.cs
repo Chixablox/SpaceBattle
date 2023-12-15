@@ -56,6 +56,6 @@ public class MoveTest
     public void ТоВозникаетОшибкаException()
     {
         Assert.Throws<Exception>(() => _move.Execute());
-
+        
     }
 }
