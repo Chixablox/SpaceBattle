@@ -34,16 +34,6 @@ public class MacroCommandTests2
     [Given(@"зависимость с названием (.*)")]
     public void ДопустимЗависимостьСНазванием(string stringDependency)
     {
-        moveCommand.Setup(cmd => cmd.Execute()).Callback(()=> {}).Verifiable();
-        IoC.Resolve<Hwdtech.ICommand>(
-        "IoC.Register",
-        "Game.Command.Move",
-        (object[] args) =>
-        {
-            return moveCommand.Object;
-        }
-        ).Execute();
-
         checkFuelCommand.Setup(cmd => cmd.Execute()).Callback(()=> {}).Verifiable();
         IoC.Resolve<Hwdtech.ICommand>(
         "IoC.Register",
@@ -61,6 +51,16 @@ public class MacroCommandTests2
         (object[] args) =>
         {
             return burnFuelCommand.Object;
+        }
+        ).Execute();
+        
+        moveCommand.Setup(cmd => cmd.Execute()).Callback(()=> {}).Verifiable();
+        IoC.Resolve<Hwdtech.ICommand>(
+        "IoC.Register",
+        "Game.Command.Move",
+        (object[] args) =>
+        {
+            return moveCommand.Object;
         }
         ).Execute();
         
