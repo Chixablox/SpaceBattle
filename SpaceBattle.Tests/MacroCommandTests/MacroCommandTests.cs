@@ -7,7 +7,7 @@ using Moq;
 using TechTalk.SpecFlow;
 
 [Binding]
-public class MacroCommandTests
+public class MacroCommandTests2
 {
     private MacroCommand _macroCommand;
 
@@ -16,7 +16,7 @@ public class MacroCommandTests
     private Mock<SpaceBattle.Lib.ICommand> checkFuelCommand = new Mock<SpaceBattle.Lib.ICommand>();
     private Mock<SpaceBattle.Lib.ICommand> burnFuelCommand = new Mock<SpaceBattle.Lib.ICommand>();
     private Mock<SpaceBattle.Lib.ICommand> moveCommand = new Mock<SpaceBattle.Lib.ICommand>();
-    public MacroCommandTests(){
+    public MacroCommandTests2(){
 
         new InitScopeBasedIoCImplementationCommand().Execute();
         IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Root"))).Execute();
@@ -31,7 +31,7 @@ public class MacroCommandTests
         ).Execute();
     }
 
-    [Given(@"зависимость с названием \((.*)\")]
+    [Given(@"зависимость с названием (.*)")]
     public void ДопустимЗависимостьСНазванием(string stringDependency)
     {
         moveCommand.Setup(cmd => cmd.Execute()).Callback(()=> {}).Verifiable();
@@ -68,8 +68,8 @@ public class MacroCommandTests
         _arrayCmd = bca.DependencyHandling();
     }
 
-    [Given(@"известно, что одна из команд не выпонится")]
-    public void ДопустимИзвестноЧтоОднаИзКомандНеВыпонится()
+    [Given(@"известно, что одна из команд не выполнится")]
+    public void ДопустимИзвестноЧтоОднаИзКомандНеВыполнится()
     {
         burnFuelCommand.Setup(cmd => cmd.Execute()).Throws<Exception>();
     }
