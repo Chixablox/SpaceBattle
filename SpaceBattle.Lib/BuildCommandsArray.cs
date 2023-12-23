@@ -15,13 +15,17 @@ public class BuildCommandsArray
     {
         var stringCmds = IoC.Resolve<string[]>(_stringDependency);
 
-        var cmds = new List<ICommand>();
+        var cmds = new ICommand[stringCmds.Length];
 
-        stringCmds.ToList().ForEach(sCmd => cmds.Add(IoC.Resolve<ICommand>(sCmd)));
+        var i = 0;
 
-        var arrayCmds = cmds.ToArray();
+        stringCmds.ToList().ForEach(sCmd =>
+        {
+            cmds[i] = IoC.Resolve<ICommand>(sCmd);
+            i++;
+        });
 
-        return arrayCmds;
+        return cmds;
     }
 }
 
