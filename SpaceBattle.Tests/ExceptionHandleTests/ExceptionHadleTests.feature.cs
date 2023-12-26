@@ -99,10 +99,10 @@ namespace SpaceBattle.Tests.ExceptionHandleTests
             {
                 this.ScenarioStart();
 #line 4
-        testRunner.Given("во время выполнения команды типа MoveCommand возникло исключение типа SetPosEx", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+        testRunner.Given("во время выполнения команды возникло исключение", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
 #line 5
-        testRunner.When("исключение обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
+        testRunner.When("исключение типа SetPosEx, вызванное командой типа MoveCommand, обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 6
         testRunner.Then("срабатывает первый обработчик", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
@@ -130,10 +130,11 @@ namespace SpaceBattle.Tests.ExceptionHandleTests
             {
                 this.ScenarioStart();
 #line 9
-        testRunner.Given("во время выполнения команды типа MoveCommand возникло неизвестное исключение", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+        testRunner.Given("во время выполнения команды возникло исключение", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
 #line 10
-        testRunner.When("исключение обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
+        testRunner.When("исключение неизвестного типа, вызванное командой типа MoveCommand, обрабатывается" +
+                        "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 11
         testRunner.Then("срабатывает второй обработчик", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
@@ -161,11 +162,10 @@ namespace SpaceBattle.Tests.ExceptionHandleTests
             {
                 this.ScenarioStart();
 #line 14
-        testRunner.Given("во время выполнения неизвестной команды возникло исключение типа IndexOutOfRangeE" +
-                        "xception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+        testRunner.Given("во время выполнения команды возникло исключение", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
 #line 15
-        testRunner.When("исключение обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
+        testRunner.When("исключение типа SetPosEx, вызванное командой неизвестного типа, обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 16
         testRunner.Then("срабатывает третий обработчик", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");
@@ -193,10 +193,11 @@ namespace SpaceBattle.Tests.ExceptionHandleTests
             {
                 this.ScenarioStart();
 #line 19
-        testRunner.Given("во время выполнения неизвестной команды возникло неизвестное исключение", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+        testRunner.Given("во время выполнения команды возникло исключение", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
 #line 20
-        testRunner.When("исключение обрабатывается", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
+        testRunner.When("исключение неизвестного типа, вызванное командой неизвестного типа, обрабатываетс" +
+                        "я", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
 #line hidden
 #line 21
         testRunner.Then("срабатывает четвёртый обработчик", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Тогда ");

@@ -10,6 +10,7 @@ public class ExceptionHandle
         var handleTree = IoC.Resolve<Hashtable>("Game.Exception.GetExceptionTree");
         var cmdTree = (Hashtable?)handleTree.GetValueOrDefaultValue(cmd.GetType().ToString());
         var handle = (ICommand?)cmdTree.GetValueOrDefaultValue(exc.GetType().ToString());
+        Console.WriteLine(cmd.GetType().ToString());
         return handle;
     }
 }

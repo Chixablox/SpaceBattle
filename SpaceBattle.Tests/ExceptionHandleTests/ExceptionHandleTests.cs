@@ -12,6 +12,7 @@ public class ExceptionHandleTests
 {
     private ExceptionHandle _exceptionHandle = new();
     private readonly MoveCommand _cmd = new(new Mock<IMovable>().Object);
+    private readonly StartCommand _cmd2 = new(new Mock<IOrder>().Object);
     private readonly SetPosEx _ex = new("");
     private readonly IndexOutOfRangeException _ex2 = new("");
     private readonly Mock<SpaceBattle.Lib.ICommand> _handler1 = new();
@@ -30,14 +31,14 @@ public class ExceptionHandleTests
         (object[] args) =>
         {
             return new Hashtable(){
-                {"MoveCommand", new Hashtable(){
-                    {"SetPosEx", _handler1},
-                    {"*", _handler2}
+                {"SpaceBattle.Lib.MoveCommand", new Hashtable(){
+                    {"SpaveBattle.Tests.SetPosEx", _handler1.Object},
+                    {"*", _handler2.Object}
                 }
                 },
                 {"*", new Hashtable(){
-                    {"IndexOutOfRangeException", _handler3},
-                    {"*", _handler4}
+                    {"SpaveBattle.Tests.SetPosEx", _handler3.Object},
+                    {"*", _handler4.Object}
                 }
                 }
             };
@@ -55,10 +56,31 @@ public class ExceptionHandleTests
         _handler4.Setup(cmd=>cmd.Execute()).Verifiable();
     }
 
-    [When("исключение обрабатывается")]
-    public void КогдаИсключениеОбрабатывается()
+    [When("исключение типа SetPosEx, вызванное командой типа MoveCommand, обрабатывается")]
+    public void КогдаИсключениеТипаSetPosExВызванноеКомандойТипаMoveCommandОбрабатывается()
     {
         var handler = _exceptionHandle.ExceptionHandler(_cmd, _ex);
+        handler.Execute();
+    }
+
+    [When("исключение неизвестного типа, вызванное командой типа MoveCommand, обрабатывается")]
+    public void КогдаИсключениеНеизвестногоТипаВызванноеКомандойТипаMoveCommandОбрабатывается()
+    {
+        var handler = _exceptionHandle.ExceptionHandler(_cmd, _ex2);
+        handler.Execute();
+    }
+
+    [When("исключение типа SetPosEx, вызванное командой неизвестного типа, обрабатывается")]
+    public void КогдаИсключениеТипаSetPosExВызванноеКомандойНеизвестногоТипаОбрабатывается()
+    {
+        var handler = _exceptionHandle.ExceptionHandler(_cmd2, _ex);
+        handler.Execute();
+    }
+
+    [When("исключение неизвестного типа, вызванное командой неизвестного типа, обрабатывается")]
+    public void КогдаИсключениеНеизвестногоТипаВызванноеКомандойНеизвестногоТипаОбрабатывается()
+    {
+        var handler = _exceptionHandle.ExceptionHandler(_cmd2, _ex2);
         handler.Execute();
     }
 
