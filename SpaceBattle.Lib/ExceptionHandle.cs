@@ -5,12 +5,11 @@ namespace SpaceBattle.Lib;
 
 public class ExceptionHandle
 {
-    public ICommand ExceptionHandler(ICommand cmd, Exception exc)
+    public ICommand ExceptionHandler(ICommand cmd, Exception ex)
     {
         var handleTree = IoC.Resolve<Hashtable>("Game.Exception.GetExceptionTree");
-        var cmdTree = (Hashtable?)handleTree.GetValueOrDefaultValue(cmd.GetType().ToString());
-        var handle = (ICommand?)cmdTree.GetValueOrDefaultValue(exc.GetType().ToString());
-        Console.WriteLine(cmd.GetType().ToString());
+        var cmdTree = (Hashtable?)handleTree.GetValueOrDefaultValue(cmd.GetType());
+        var handle = (ICommand?)cmdTree.GetValueOrDefaultValue(ex.GetType());
         return handle;
     }
 }

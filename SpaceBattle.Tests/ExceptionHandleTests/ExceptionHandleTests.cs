@@ -31,13 +31,13 @@ public class ExceptionHandleTests
         (object[] args) =>
         {
             return new Hashtable(){
-                {"SpaceBattle.Lib.MoveCommand", new Hashtable(){
-                    {"SpaveBattle.Tests.SetPosEx", _handler1.Object},
+                {typeof(MoveCommand), new Hashtable(){
+                    {typeof(SetPosEx), _handler1.Object},
                     {"*", _handler2.Object}
                 }
                 },
                 {"*", new Hashtable(){
-                    {"SpaveBattle.Tests.SetPosEx", _handler3.Object},
+                    {typeof(SetPosEx), _handler3.Object},
                     {"*", _handler4.Object}
                 }
                 }
