@@ -4,16 +4,9 @@ namespace SpaceBattle.Lib;
 
 public class BuildCommandsArray
 {
-    private readonly string _stringDependency;
-
-    public BuildCommandsArray(string stringDependency)
+    public static ICommand[] DependencyHandling(string stringDependency)
     {
-         _stringDependency = stringDependency;
-    }
-
-    public ICommand[] DependencyHandling()
-    {
-        var stringCmds = IoC.Resolve<string[]>(_stringDependency);
+        var stringCmds = IoC.Resolve<string[]>(stringDependency);
 
         var cmds = new ICommand[stringCmds.Length];
 

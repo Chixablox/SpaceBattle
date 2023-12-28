@@ -10,9 +10,7 @@ using TechTalk.SpecFlow;
 public class MacroCommandTests2
 {
     private MacroCommand _macroCommand;
-
-    private SpaceBattle.Lib.ICommand[] _arrayCmd;
-
+    private string _stringDependency;
     private Mock<SpaceBattle.Lib.ICommand> checkFuelCommand = new Mock<SpaceBattle.Lib.ICommand>();
     private Mock<SpaceBattle.Lib.ICommand> burnFuelCommand = new Mock<SpaceBattle.Lib.ICommand>();
     private Mock<SpaceBattle.Lib.ICommand> moveCommand = new Mock<SpaceBattle.Lib.ICommand>();
@@ -27,6 +25,18 @@ public class MacroCommandTests2
         (object[] args) =>
         {
             return new string[] {"Game.Command.CheckFuel","Game.Command.BurnFuel","Game.Command.Move"};
+        }
+        ).Execute();
+
+        IoC.Resolve<Hwdtech.ICommand>(
+        "IoC.Register",
+        "Game.MacroCommand.Builder",
+        (object[] args) =>
+        {   
+            var dependency = (string)args[0];
+            var cmdArray = BuildCommandsArray.DependencyHandling(dependency);
+            var macroCommand = new MacroCommand(cmdArray);
+            return macroCommand;
         }
         ).Execute();
     }
@@ -63,9 +73,8 @@ public class MacroCommandTests2
             return moveCommand.Object;
         }
         ).Execute();
-        
-        var bca = new BuildCommandsArray(stringDependency);
-        _arrayCmd = bca.DependencyHandling();
+
+        _stringDependency = stringDependency;
     }
 
     [Given(@"известно, что одна из команд не выполнится")]
@@ -77,7 +86,7 @@ public class MacroCommandTests2
     [When("макрокоманда составляется")]
     public void КогдаMакрокомандаCоставляется()
     {
-        _macroCommand = new MacroCommand(_arrayCmd);
+        _macroCommand = (MacroCommand)IoC.Resolve<Lib.ICommand>("Game.MacroCommand.Builder", _stringDependency);
     }
 
     [Then(@"макрокоманда успешно выполняется")]
