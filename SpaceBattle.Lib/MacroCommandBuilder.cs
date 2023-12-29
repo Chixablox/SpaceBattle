@@ -12,6 +12,9 @@ public class MacroCommandBuilder : ICommand
         (object[] args) =>
         {   
             var dependency = (string)args[0];
+
+            var gameObject = (IUObject)args[1];
+
             var stringCmds = IoC.Resolve<string[]>(dependency);
 
             var cmds = new ICommand[stringCmds.Length];
@@ -20,11 +23,12 @@ public class MacroCommandBuilder : ICommand
 
             stringCmds.ToList().ForEach(sCmd =>
             {
-                cmds[i] = IoC.Resolve<ICommand>(sCmd);
+                cmds[i] = IoC.Resolve<ICommand>(sCmd, gameObject);
                 i++;
             });
 
             var macroCommand = new MacroCommand(cmds);
+
             return macroCommand;
         }
         ).Execute();

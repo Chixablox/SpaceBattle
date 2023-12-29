@@ -11,14 +11,13 @@ public class MacroCommandTests2
 {
     private MacroCommand _macroCommand;
     private string _stringDependency;
-    private Mock<SpaceBattle.Lib.ICommand> checkFuelCommand = new Mock<SpaceBattle.Lib.ICommand>();
-    private Mock<SpaceBattle.Lib.ICommand> burnFuelCommand = new Mock<SpaceBattle.Lib.ICommand>();
-    private Mock<SpaceBattle.Lib.ICommand> moveCommand = new Mock<SpaceBattle.Lib.ICommand>();
+    private readonly Mock<IUObject> _uObject = new();
+    private Mock<SpaceBattle.Lib.ICommand> checkFuelCommand = new();
+    private Mock<SpaceBattle.Lib.ICommand> burnFuelCommand = new();
+    private Mock<SpaceBattle.Lib.ICommand> moveCommand = new();
     public MacroCommandTests2(){
 
         new InitScopeBasedIoCImplementationCommand().Execute();
-        
-        new MacroCommandBuilder().Execute();
 
         IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Root"))).Execute();
 
@@ -37,6 +36,8 @@ public class MacroCommandTests2
         "Game.Command.CheckFuel",
         (object[] args) =>
         {
+            var target = (IUObject)args[0];
+            target.SetProperty("Game.Command.CheckFuel", checkFuelCommand.Object);
             return  checkFuelCommand.Object;
         }
         ).Execute();
@@ -47,6 +48,8 @@ public class MacroCommandTests2
         "Game.Command.BurnFuel",
         (object[] args) =>
         {
+            var target = (IUObject)args[0];
+            target.SetProperty("Game.Command.BurnFuel", burnFuelCommand.Object);
             return burnFuelCommand.Object;
         }
         ).Execute();
@@ -57,14 +60,23 @@ public class MacroCommandTests2
         "Game.Command.Move",
         (object[] args) =>
         {
+            var target = (IUObject)args[0];
+            target.SetProperty("Game.Command.Move", moveCommand.Object);
             return moveCommand.Object;
         }
         ).Execute();
+
+        new MacroCommandBuilder().Execute();
     }
 
-    [Given(@"зависимость с названием (.*)")]
-    public void ДопустимЗависимостьСНазванием(string stringDependency)
+    [Given(@"зависимость с названием (.*) и некий игровой объект")]
+    public void ДопустимЗависимостьСНазваниемИНекийИгровойОбъект(string stringDependency)
     {
+        var dictionaryForUObject = new Dictionary<string, object>();
+
+        _uObject.Setup(uObject => uObject.SetProperty(It.IsAny<string>(), It.IsAny<object>())).Callback<string, object>(dictionaryForUObject.Add);
+        _uObject.Setup(uObject => uObject.GetProperty(It.IsAny<string>())).Returns((string key) => dictionaryForUObject[key]);
+
         _stringDependency = stringDependency;
     }
 
@@ -77,7 +89,7 @@ public class MacroCommandTests2
     [When("макрокоманда составляется")]
     public void КогдаMакрокомандаCоставляется()
     {
-        _macroCommand = (MacroCommand)IoC.Resolve<Lib.ICommand>("Game.MacroCommand.Builder", _stringDependency);
+        _macroCommand = (MacroCommand)IoC.Resolve<Lib.ICommand>("Game.MacroCommand.Builder", _stringDependency, _uObject.Object);
     }
 
     [Then(@"макрокоманда успешно выполняется")]

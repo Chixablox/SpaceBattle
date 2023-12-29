@@ -99,7 +99,7 @@ namespace SpaceBattle.Tests.MacroCommandTests
             {
                 this.ScenarioStart();
 #line 4
-        testRunner.Given("зависимость с названием Game.MacroCommand.Move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+        testRunner.Given("зависимость с названием Game.MacroCommand.Move и некий игровой объект", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
 #line 5
         testRunner.When("макрокоманда составляется", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Когда ");
@@ -130,7 +130,7 @@ namespace SpaceBattle.Tests.MacroCommandTests
             {
                 this.ScenarioStart();
 #line 10
-        testRunner.Given("зависимость с названием Game.MacroCommand.Move", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
+        testRunner.Given("зависимость с названием Game.MacroCommand.Move и некий игровой объект", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Дано ");
 #line hidden
 #line 11
         testRunner.And("известно, что одна из команд не выполнится", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "И ");
