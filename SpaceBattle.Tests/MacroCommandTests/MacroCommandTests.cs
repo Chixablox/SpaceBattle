@@ -17,6 +17,9 @@ public class MacroCommandTests2
     public MacroCommandTests2(){
 
         new InitScopeBasedIoCImplementationCommand().Execute();
+        
+        new MacroCommandBuilder().Execute();
+
         IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Root"))).Execute();
 
         IoC.Resolve<Hwdtech.ICommand>(
@@ -57,9 +60,6 @@ public class MacroCommandTests2
             return moveCommand.Object;
         }
         ).Execute();
-
-        new MacroCommandBuilder().Execute();
-
     }
 
     [Given(@"зависимость с названием (.*)")]
