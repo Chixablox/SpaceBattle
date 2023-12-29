@@ -28,22 +28,6 @@ public class MacroCommandTests2
         }
         ).Execute();
 
-        IoC.Resolve<Hwdtech.ICommand>(
-        "IoC.Register",
-        "Game.MacroCommand.Builder",
-        (object[] args) =>
-        {   
-            var dependency = (string)args[0];
-            var cmdArray = BuildCommandsArray.DependencyHandling(dependency);
-            var macroCommand = new MacroCommand(cmdArray);
-            return macroCommand;
-        }
-        ).Execute();
-    }
-
-    [Given(@"зависимость с названием (.*)")]
-    public void ДопустимЗависимостьСНазванием(string stringDependency)
-    {
         checkFuelCommand.Setup(cmd => cmd.Execute()).Callback(()=> {}).Verifiable();
         IoC.Resolve<Hwdtech.ICommand>(
         "IoC.Register",
@@ -74,6 +58,11 @@ public class MacroCommandTests2
         }
         ).Execute();
 
+    }
+
+    [Given(@"зависимость с названием (.*)")]
+    public void ДопустимЗависимостьСНазванием(string stringDependency)
+    {
         _stringDependency = stringDependency;
     }
 
