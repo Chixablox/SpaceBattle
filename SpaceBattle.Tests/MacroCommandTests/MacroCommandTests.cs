@@ -58,6 +58,8 @@ public class MacroCommandTests2
         }
         ).Execute();
 
+        new MacroCommandBuilder().Execute();
+
     }
 
     [Given(@"зависимость с названием (.*)")]
